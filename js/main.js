@@ -2,39 +2,11 @@ let emojiGrid = document.getElementById("emojiGrid");
 let message = document.getElementById("message");
 let play_again = document.getElementById("play_again");
 let message_timer = document.getElementById("message_timer");
-
+let Start = document.getElementById("Start");
 let interval;
 
-let timer = () => {
-  let counter = 10;
-
-  interval = setInterval(() => {
-    message_timer.textContent = `Time Remaining : ${counter}`;
-    if (counter === 0) {
-      clearInterval(interval);
-
-      document.querySelectorAll(".tile").forEach((tile) => {
-        tile.disabled = true;
-        tile.style.opacity = "1";
-      });
-      message_timer.classList.remove("last-seconds-animation");
-      message_timer.textContent = "⏰ Time's up!";
-      message_timer.style.color = "red";
-      play_again.classList.remove("none");
-      differentTile.classList.add("highlight-different");
-    }
-    if (counter == 3) {
-      message_timer.classList.add("last-seconds-animation");
-    }
-    if (counter <= 10) {
-      message_timer.classList.add("first-seconds-animation");
-    }
-    counter--;
-  }, 1000);
-};
-
-
-
+Start.addEventListener("click" , function () {
+  Start.classList.add("none");
 let differentTile = null;
 let emojiList = [
   "😐", "😑", "😶", "🙄", "😬", "😕", "😒", "😔", "😟", "😧",
@@ -85,7 +57,39 @@ for (let i = 0; i < 120; i++) {
 
   emojiGrid.appendChild(tile);
 }
+timer();
+})
+let timer = () => {
+  let counter = 10;
+
+  interval = setInterval(() => {
+    message_timer.textContent = `Time Remaining : ${counter}`;
+    if (counter === 0) {
+      clearInterval(interval);
+
+      document.querySelectorAll(".tile").forEach((tile) => {
+        tile.disabled = true;
+        tile.style.opacity = "1";
+      });
+      message_timer.classList.remove("last-seconds-animation");
+      message_timer.textContent = "⏰ Time's up!";
+      message_timer.style.color = "red";
+      play_again.classList.remove("none");
+      differentTile.classList.add("highlight-different");
+    }
+    if (counter == 3) {
+      message_timer.classList.add("last-seconds-animation");
+    }
+    if (counter <= 10) {
+      message_timer.classList.add("first-seconds-animation");
+    }
+    counter--;
+  }, 1000);
+};
+
+
+
+
 play_again.addEventListener("click", function () {
   window.location.reload();
 });
-timer();

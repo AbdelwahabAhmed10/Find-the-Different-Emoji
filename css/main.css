@@ -76,7 +76,7 @@ h1 {
   display: none;
 }
 
-#play_again {
+.play_again_start {
   font-family: 'Quicksand', sans-serif;
   padding: 12px 24px;
   background-color: #f39c12;
@@ -90,12 +90,12 @@ h1 {
   margin-top: 10px;
 }
 
-#play_again:hover {
+.play_again_start:hover {
   background-color: #e67e22;
   transform: scale(1.05);
 }
 
-#play_again:active {
+.play_again_start:active {
   transform: scale(0.98);
 }
 .win {
@@ -123,11 +123,11 @@ h1 {
 }
 .highlight-different {
   opacity: 1 !important;
-  border: 3px solid green;
-  transform: scale(1.1);
-  /* background-color: #d4edda; */
-  transition: all 0.3s ease;
-  z-index: 10;
+  border: 3px solid red !important;
+  background-color: #d4edda !important;
+  transform: scale(1.2) !important;
+  color: black !important;
+  z-index: 999 !important;
 }
 
 
@@ -215,7 +215,7 @@ h1 {
     font-size: 16px;
   }
 
-  #play_again {
+  .play_again_start {
     font-size: 14px;
     padding: 8px 16px;
   }
